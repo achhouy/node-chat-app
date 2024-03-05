@@ -1,25 +1,10 @@
-// COUNT EXAMPLE
-// const socket = io();
-
-// socket.on('countUpdated', (count) => {
-//     console.log('The count has been updated', count);
-// });
-
-// document.querySelector('#increment').addEventListener('click', () => {
-//     console.log('click');
-//     socket.emit('increment');
-// });
-
 const socket = io();
 
 // Message Elements
 const $messageForm = document.querySelector('#message-form');
 const $messageFormInput = $messageForm.querySelector('input');
 const $messageFormButton = $messageForm.querySelector('button');
-
-// Location elements
 const $locationButton = document.querySelector('#send-location');
-
 const $messages = document.querySelector('#messages');
 
 // Template
@@ -58,7 +43,6 @@ const autoscroll = () => {
 };
 
 socket.on('message', (message) => {
-    console.log(message);
     const html = Mustache.render(messageTemplate, {
         username: message.username,
         message: message.text,
